@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Button from "./Button";
+import Typography from "./Typography";
 
 function App() {
+  const [wishes, setWishes] = useState("Hey Ammu ");
+  // const [buttonText, setButtonText] = useState("Switch To Dark Mode");
+  const [mode, setMode] = useState(1);
+
+  const onToggleMode = () => {
+    setMode(mode === 1 ? 0 : 1);
+  };
+  const changeText = () => {
+    setWishes("Hey Ammu .. I love you");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Typography text={mode === 1 ? "Good Morning" : "Good Night"} />
+      <Button
+        name={mode === 1 ? "Switch to Dark Mode" : "Switch To Ligt Mode"}
+        onClick={onToggleMode}
+      />
+      <Button name={"Wish"} onClick={changeText} />
+      <Typography text={wishes} />
     </div>
   );
 }
