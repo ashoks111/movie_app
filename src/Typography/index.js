@@ -1,5 +1,5 @@
 const Typography = (props) => {
-  const { text } = props;
-  return <h1>{text}</h1>;
+  const { text, mode } = props;
+  return <h1 className={mode === 1 ? "text-light" : "text-dark"}>{text}</h1>;
 };
 export default Typography;
